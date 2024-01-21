@@ -1,0 +1,21 @@
+{
+    "name": "template",
+    "version": "1.1.0",
+    "description": "Bot template written in TypeScript using the DJS library version v14",
+    "private": true,
+    "main": "build/main.js",
+    "author": "picturee",
+    "license": "ISC",
+    "scripts": {
+        "build": "tsc",
+        "start": "node build/main.js",
+        "start:dev": "ts-node-dev src/main.ts"
+    },
+    "dependencies": {
+        "discord.js": "^14.14.1",
+        "dotenv": "^16.3.1",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.3.3",
+        "yarn": "^1.22.21"
+    }
+}
