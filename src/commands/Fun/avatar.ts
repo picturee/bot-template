@@ -1,31 +1,30 @@
-import { CommandInteraction, EmbedBuilder, GuildMember, SlashCommandBuilder, SlashCommandUserOption } from 'discord.js';
-import Client from '../../structures/Client';
-import Command from '../../structures/Command';
+import { EmbedBuilder, type GuildMember, SlashCommandBuilder, type CacheType, type CommandInteraction, type SlashCommandUserOption } from "discord.js";
+import { ClientBot, Command } from '../../classes/index.js';
 
-export default abstract class extends Command {
+export default class extends Command { 
     constructor() {
         super({
-            data: new SlashCommandBuilder()
-            .setName('avatar')
-            .setDescription('View member avatar')
-            .addUserOption((option: SlashCommandUserOption) => {
-                return option.setName('member')
-                    .setDescription("View another member's avatar")
-                    .setRequired(false);
-            }),
+            builder: new SlashCommandBuilder()
+                .setName('avatar')
+                .setDescription('View member avatar')
+                .addUserOption((option: SlashCommandUserOption) => {
+                    return option.setName('member')
+                        .setDescription("View another member's avatar")
+                        .setRequired(false)
+                }),
+            cooldown: 1
         });
-    }
-    public callback(client: Client, interaction: CommandInteraction) {
+    };
+    public async callback(_client: ClientBot, interaction: CommandInteraction<CacheType>): Promise<void> {
         if (!interaction.inCachedGuild()) return;
-        
+
         const member: GuildMember = interaction.options.get('member')?.member || interaction.member;
-        return interaction.deferReply().then(() => {
-            interaction.editReply({ embeds: [new EmbedBuilder()
-                .setTitle(`Member avatar ${interaction.member.displayName}`)
-                    .setColor(0x2F3136)
-                    .setImage(member.displayAvatarURL({ size: 1024 }))
-                ],
-            });
-        }).catch((e: Error) => console.error(e));
-    }; 
+        const embed: EmbedBuilder = new EmbedBuilder();
+            embed.setTitle(`Member avatar ${interaction.member.displayName}`);
+            embed.setColor(0x2F3136)
+            embed.setImage(member.displayAvatarURL({ size: 1024 }));
+
+        await interaction.deferReply().catch(() => interaction.followUp({ content: 'An error occurred during the interaction process' }));
+        return void (await interaction.editReply({ embeds: [embed] }));
+    };
 };

@@ -1,3 +1,4 @@
-import DiscordClient from './structures/Client';
-export const client: DiscordClient = new DiscordClient();
-client.login(process.env.token);
+import { ClientBot } from './classes/getClientBot.js';
+
+const client: ClientBot = new ClientBot();
+void (client.login(process.env.token));

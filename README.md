@@ -5,9 +5,10 @@ Welcome to the repository of my Discord bot, written in TypeScript using the Dis
 ## Getting Started
 
 1. Clone this repository to your local machine.
-2. Add your bot token to the .env file.
+2. Create a file with the extension .env in the main folder of your bot and add your token to it. For example: `token = YourToken`
 3. Install the required packages by running `yarn add`.
 4. Start the bot in debug mode using `yarn start:dev`.
+5. Before starting the bot, you need to compile it. To do this, use the `yarn build` command in the terminal. After successful compilation, start the bot with the `yarn start` command
 
 ## Features
 
@@ -20,7 +21,6 @@ Make sure you have the following packages installed:
 
 - Discord JS v14
 - TypeScript
-- ts-node-dev
 - typescript
 - yarn
 
