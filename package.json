@@ -1,22 +1,23 @@
 {
-    "name": "bot-template",
-    "description": "picturee project",
-    "main": "dist/main.js",
-    "version": "1.0.0",
-    "private": true,
-    "author": "picturee",
-    "license": "ISC",
-    "scripts": {
-        "build": "tsc --build",
-        "start": "node dist/main.js"
-    },
-    "imports": {
-        "#dist/*": "./dist/*"
-    },
-    "dependencies": {
-        "discord.js": "^14.14.1",
-        "dotenv": "^16.4.5",
-        "typescript": "^5.3.3",
-        "yarn": "^1.22.21"
-    }
+     "name": "bot-template",
+     "description": "picturee project",
+     "main": "dist/main.js",
+     "version": "1.0.0",
+     "private": true,
+     "author": "picturee",
+     "license": "ISC",
+     "scripts": {
+          "build": "tsc --build",
+          "start": "node dist/main.js"
+     },
+     "imports": {
+          "#structures/*": "./dist/structures/*"
+     },
+     "dependencies": {
+          "discord.js": "^14.15.3",
+          "dotenv": "^16.4.5",
+          "mongoose": "^8.4.3",
+          "typescript": "^5.5.2",
+          "yarn": "^1.22.22"
+     }
 }

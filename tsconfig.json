@@ -1,36 +1,74 @@
 {
-    "compileOnSave": true,
-    "compilerOptions": {
-        "lib": ["ESNext"],
-        "target": "ESNext",
-        "module": "CommonJS",
-        "moduleResolution": "Node",
-
-        // # 
-        "esModuleInterop": true, // # Создать хелперы __importStar и __importDefault
-        "allowSyntheticDefaultImports": true, // Разрешить импортировать модули не имеющие внутри себя "import default"?
-        "resolveJsonModule": true, // Разрешить использовать JSON файлы  ?
-        "importHelpers": true, // # Вспомогательн
-
-        // # 
-        "strict": true, // # Включить ли все строги проверки типов сразу: noImplicitAny, noImplicitThis, alwaysStrict, strictNullChecks, strictFunctionTypes, strictPropertyInitialization?
-        "allowJs": true, // # Разрешать компилировать файлы с JavaScript-кодом?
-        "checkJs": true, // # Сообщить об ошибках в .js-файлах? Используйте совместно с "allowJs".
-
-        // # 
-        "noEmitOnError": true, // Не создавать итоговый файл, если во время компиляции произошла ошибка. 
-        "pretty": true, // Окрашивать в терминале сообщения об ошибках.
-        "removeComments": true, // Удалить все комментарии из итогового файла.
-        "noUnusedParameters": true, // Показывать ошибку, если где-то найдены неиспользуемые параметры.   
-        "allowUnreachableCode": true, // Сообщить об ошибке в случае обнаружения кода, который никогда не будет выполнен?
-        "forceConsistentCasingInFileNames": true, // Запретить несогласованные ссылки на один и тот же файл?
-        "noFallthroughCasesInSwitch": true, // Сообщить об ошибке в случае обнаружения проваливания в конструкции switch-case?
-        "skipLibCheck": false, // Не проверять типы, заданные во всех файлах описания типов (*.d.ts)?
-    
-        "baseUrl": "src", 
-        "rootDir": "./src", // Путь до папки с которой надо начинать поиск входных файлов. 
-        "outDir": "./dist", // Поместить все скомпилированные файлы в данную папку, согласно их вложенности в исходниках.
-    },
-    "include": ["src/**/*", "environment.d.ts"],
-    "exclude": ["dist", "node_modules"]
+     "compileOnSave": true,
+     "compilerOptions": {
+          "lib": ["ESNext"],
+          "target": "ESNext",
+          "module": "CommonJS",
+          "moduleResolution": "Node",
+          "esModuleInterop": true, // Помогает при импорте модулей без default экспорта
+          "allowSyntheticDefaultImports": true, // Разрешает импорт модулей без 'import default'
+          "resolveJsonModule": true, // Разрешает импорт JSON файлов
+          "importHelpers": true, // Импортирует вспомогательные функции из 'tslib'
+          "strict": true, // Включает все строгие проверки типов
+          "allowJs": true, // Разрешает компиляцию JS файлов
+          "checkJs": true, // Проверяет ошибки в JS файлах
+          "noEmitOnError": true, // Не создает файлы, если есть ошибки
+          "pretty": true, // Улучшает отображение ошибок в терминале
+          "removeComments": true, // Удаляет комментарии из итоговых файлов
+          "noUnusedParameters": true, // Предупреждает о неиспользуемых параметрах
+          "allowUnreachableCode": true, // Предупреждает о недостижимом коде
+          "forceConsistentCasingInFileNames": true, // Требует согласованности регистра в именах файлов
+          "noFallthroughCasesInSwitch": true, // Предупреждает о проваливании в switch-case
+          "isolatedModules": true,
+          "skipLibCheck": false, // Проверяет типы в файлах описания типов
+          "baseUrl": ".", // Базовый URL для разрешения модулей
+          "paths": {
+               "#structures/*": ["src/structures/*"] // псевдоним для путей
+          },
+         "rootDir": "./src", // Корневая директория исходных файлов
+         "outDir": "./dist", // Директория для скомпилированных файлов
+     },
+     "include": ["src/**/*"], // Шаблоны файлов для компиляции
+     "exclude": ["node_modules"] // Исключенные файлы/папки из компиляции
 }
+
+/*
+{
+     "compileOnSave": true,
+     "compilerOptions": {
+          "lib": ["ESNext"],
+          "target": "ESNext",
+          "module": "CommonJS",
+          "moduleResolution": "Node",
+
+          "esModuleInterop": true, // # Создать хелперы __importStar и __importDefault
+          "allowSyntheticDefaultImports": true, // Разрешить импортировать модули не имеющие внутри себя "import default"?
+          "resolveJsonModule": true, // Разрешить использовать JSON файлы  ?
+          "importHelpers": true, // # Вспомогательн
+
+          "strict": true, // # Включить ли все строги проверки типов сразу: noImplicitAny, noImplicitThis, alwaysStrict, strictNullChecks, strictFunctionTypes, strictPropertyInitialization?
+          "allowJs": true, // # Разрешать компилировать файлы с JavaScript-кодом?
+          "checkJs": true, // # Сообщить об ошибках в .js-файлах? Используйте совместно с "allowJs".
+  
+          // # 
+          "noEmitOnError": true, // Не создавать итоговый файл, если во время компиляции произошла ошибка. 
+          "pretty": true, // Окрашивать в терминале сообщения об ошибках.
+          "removeComments": true, // Удалить все комментарии из итогового файла.
+          "noUnusedParameters": true, // Показывать ошибку, если где-то найдены неиспользуемые параметры.   
+          "allowUnreachableCode": true, // Сообщить об ошибке в случае обнаружения кода, который никогда не будет выполнен?
+          "forceConsistentCasingInFileNames": true, // Запретить несогласованные ссылки на один и тот же файл?
+          "noFallthroughCasesInSwitch": true, // Сообщить об ошибке в случае обнаружения проваливания в конструкции switch-case?
+          "skipLibCheck": false, // Не проверять типы, заданные во всех файлах описания типов (*.d.ts)?
+
+          "baseUrl": ".",
+          "paths": {
+               "#dist/*": ["./dist/*"]
+          }, 
+         "rootDir": "./src", // # Этот параметр определяет корневую директорию, которая содержит все исходные файлы для компиляции.
+         "outDir": "./dist", //# Указывает директорию, в которую будут помещены скомпилированные файлы.
+     },
+}
+*/
+
+// "include": ["src/**/*", "dist/**/*", "types.d.ts"], // # Определяет шаблоны файлов, которые должны быть включены в процесс компиляции.
+// "exclude": ["dist", "node_modules"] // # Исключает определенные файлы или папки из процесса компиляции. 

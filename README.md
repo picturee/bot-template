@@ -1,29 +1,32 @@
-# Discord Bot Repository
+# Discord Bot Repository 🤖
 
-Welcome to the repository of my Discord bot, written in TypeScript using the Discord JS library. This bot is based on DiscordJS v14 and provides a convenient command handler with slash commands. If you're looking to develop your own bot, you're in luck - this template is perfect for that!
+Welcome to the repository of my Discord bot, crafted with care in TypeScript and powered by the robust Discord JS library. This bot, leveraging DiscordJS v14, is equipped with a sleek command handler for slash commands. Whether you're a seasoned developer or just starting out, this template is the ideal springboard for your bot development journey!
 
-## Getting Started
+## 🚀 Getting Started
 
-1. Clone this repository to your local machine.
-2. Create a file with the extension .env in the main folder of your bot and add your token to it. For example: `token = YourToken`
-3. Install the required packages by running `yarn add`.
-4. Start the bot in debug mode using `yarn start:dev`.
-5. Before starting the bot, you need to compile it. To do this, use the `yarn build` command in the terminal. After successful compilation, start the bot with the `yarn start` command
+To get your bot up and running, follow these simple steps:
 
-## Features
+1. **Clone** this repository to your local machine.
+2. **Create** a `.env` file in the main folder of your bot and insert your token like so: `token=YourToken`.
+3. **Install** the required packages by executing `yarn add` in your terminal.
+4. **Compile** your bot using the `yarn build` command before launch. Once compiled, bring your bot to life with `yarn start`.
 
-- Command handling with slash commands
-- Powerful and flexible Discord bot
+## ✨ Features
 
-## Requirements
+- Intuitive **Command Handling** with slash commands.
+- A **Powerful** and **Flexible** Discord bot framework.
+- Integrated **MongoDB** database for robust data management.
 
-Make sure you have the following packages installed:
+## 📦 Requirements
 
-- Discord JS v14
-- TypeScript
-- typescript
-- yarn
+Ensure you have these packages installed:
 
-## Contributing
+- `Discord JS v14`
+- `mongoose`
+- `dotenv`
+- `typescript`
+- `yarn`
 
-Contributions are welcome! If you have any ideas or improvements, feel free to open an issue or submit a pull request.
+## 🤝 Contributing
+
+Your contributions are the heartbeat of this project! If you've got ideas or enhancements in mind, don't hesitate to open an issue or send over a pull request.
